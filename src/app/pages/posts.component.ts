@@ -31,6 +31,7 @@ import { Post } from '../models';
         Submit
       </button>
     </form>
+    <h3 class="my-100 text-indigo-900">{{ content }}</h3>
     <ul>
       <li *ngFor="let post of store().posts.reverse()">
         <h3>{{ post.title }}</h3>
