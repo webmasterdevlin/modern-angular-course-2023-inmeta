@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Todo } from '../models';
+import { Post, Todo } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,12 @@ export interface StoreType {
   loading: boolean;
   error: string;
   todos: Todo[];
+  posts: Post[];
 }
 
 const initialStoreState: StoreType = {
   loading: false,
   error: '',
   todos: [],
+  posts: [],
 };
