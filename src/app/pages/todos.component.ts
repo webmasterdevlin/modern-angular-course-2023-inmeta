@@ -6,7 +6,14 @@ import { Actions, State } from '../store';
   selector: 'app-todos',
   standalone: true,
   imports: [SharedModule],
-  template: ``,
+  template: `
+    <h1>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h1>
+    <ul>
+      <li *ngFor="let todo of store().todos">
+        <span class="mr-5">{{ todo.title }}</span>
+      </li>
+    </ul>
+  `,
   styles: [],
 })
 export class TodosComponent implements OnInit {
