@@ -11,7 +11,7 @@ export class HttpService {
   async delete<T>(endpoint: EndPointsKeys, id: number) {
     return await api.delete<T>(`${endpoint}/${id}`);
   }
-  async post<T>(endpoint: EndPointsKeys, data: any) {
+  async post<T>(endpoint: EndPointsKeys, data: T) {
     return await api.post<T>(`${endpoint}?_start=0&_limit=10`, data);
   }
   async put<ResponseT, BodyT>(
