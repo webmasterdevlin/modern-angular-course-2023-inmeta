@@ -38,6 +38,17 @@ export class Actions {
     this._stateService.store.mutate((state) => state.todos.splice(index, 1));
   }
 
+  async createPost(value: Post) {
+    this.enableLoading();
+    try {
+      const { data } = await this._httpService.post<Post>('posts', value);
+      this._stateService.store.mutate((store) => store.posts.push(data));
+    } catch (e: any) {
+      this.setError(e.message);
+    }
+    this.disableLoading();
+  }
+
   private enableLoading() {
     this._stateService.store.mutate((store) => {
       store.loading = true;
