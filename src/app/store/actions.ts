@@ -33,6 +33,11 @@ export class Actions {
     this.disableLoading();
   }
 
+  // with no side effect, synchronous
+  removeTodoById(index: number) {
+    this._stateService.store.mutate((state) => state.todos.splice(index, 1));
+  }
+
   private enableLoading() {
     this._stateService.store.mutate((store) => {
       store.loading = true;

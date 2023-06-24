@@ -25,4 +25,8 @@ export class TodosComponent implements OnInit {
   async ngOnInit() {
     await this._actionsService.fetchTodos();
   }
+
+  handleRemoveTodo(index: number) {
+    this._actionsService.removeTodoById(index);
+  }
 }
