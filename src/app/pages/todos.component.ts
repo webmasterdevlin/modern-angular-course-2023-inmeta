@@ -9,8 +9,9 @@ import { Actions, State } from '../store';
   template: `
     <h1>{{ store().loading ? 'loading..' : 'Todos Works!' }}</h1>
     <ul>
-      <li *ngFor="let todo of store().todos">
+      <li *ngFor="let todo of store().todos; let i = index">
         <span class="mr-5">{{ todo.title }}</span>
+        <button class="text-red-400" (click)="handleRemoveTodo(i)" >Done</button>
       </li>
     </ul>
   `,
