@@ -41,7 +41,7 @@ export class Actions {
   }
 
   private setError(message: string) {
-    this._stateService.store.mutate((store) => (store.error = e.message));
+    this._stateService.store.mutate((store) => (store.error = message));
   }
 
   private disableLoading() {
