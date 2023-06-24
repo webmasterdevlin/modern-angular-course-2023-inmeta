@@ -27,9 +27,9 @@ import { Post } from '../models';
         formControlName="body"
         class="bg-gray-50 border border-gray-300 rounded-lg"
       />
-      <button type="submit" 
-      class="text-white bg-indigo-700 rounded-xl p-1"
-      >Submit</button>
+      <button type="submit" class="text-white bg-indigo-700 rounded-xl p-1">
+        Submit
+      </button>
     </form>
     <ul>
       <li *ngFor="let post of store().posts.reverse()">
@@ -54,6 +54,7 @@ export class PostsComponent implements OnInit {
 
   async ngOnInit() {
     await this._actionsService.fetchPosts();
+    this.watchForm();
   }
 
   async handleSubmitPost() {
