@@ -1,14 +1,23 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, effect } from '@angular/core';
 import { State } from './state';
 import { HttpService } from '../services/http.service';
 import { Post, Todo } from '../models';
+import { LocalStorageService } from '../utilities/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Actions {
+  private key = 'store';
   private _stateService = inject(State);
   private _httpService = inject(HttpService);
+  private _localStorageService = inject(LocalStorageService);
+
+  constructor() {
+    effect(() =>
+      this._localStorageService.setItem(this.key, this._stateService.store())
+    );
+  }
 
   // with side effect because this is with asynchronous call
   async fetchTodos() {

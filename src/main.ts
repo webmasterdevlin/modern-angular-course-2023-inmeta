@@ -5,7 +5,11 @@ import {
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { appRoutes } from './app/app.routes';
+import { LocalStorageService } from './app/utilities/local-storage.service';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(appRoutes, withEnabledBlockingInitialNavigation())],
+  providers: [
+    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+    { provide: LocalStorageService, useClass: LocalStorageService },
+  ],
 }).catch((err) => console.error(err));
