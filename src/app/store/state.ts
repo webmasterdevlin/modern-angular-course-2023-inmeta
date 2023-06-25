@@ -7,15 +7,13 @@ import { LocalStorageService } from '../utilities/local-storage.service';
 })
 export class State {
   private key = 'store';
-  store = signal<StoreType>(initialStoreState);
   private _localStorageService = inject(LocalStorageService);
+
+  store = signal<StoreType>(initialStoreState);
 
   constructor() {
     const localStore = this._localStorageService.getItem<StoreType>(this.key);
     if (localStore) this.store.set(localStore);
-
-    // the effect can only be used inside the constructor
-    effect(() => this._localStorageService.setItem(this.key, this.store()));
   }
 }
 

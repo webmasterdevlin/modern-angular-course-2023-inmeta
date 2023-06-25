@@ -14,6 +14,7 @@ export class Actions {
   private _localStorageService = inject(LocalStorageService);
 
   constructor() {
+    // the effect can only be used inside a constructor
     effect(() =>
       this._localStorageService.setItem(this.key, this._stateService.store())
     );
