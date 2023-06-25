@@ -1,4 +1,4 @@
 [build]
   base = "/"
-  publish = "dist/apps/app"
-  command = "nx build app --prod"
+  publish = "dist/app"
+  command = "nx build --prod"
