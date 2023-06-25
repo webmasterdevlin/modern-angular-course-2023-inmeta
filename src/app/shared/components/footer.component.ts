@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `<p>footer works!</p>`,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  
+}
